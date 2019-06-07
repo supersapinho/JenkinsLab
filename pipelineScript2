@@ -1,5 +1,23 @@
-
-mail bcc: '', body: '''This is the $JOB_NAME while in $STAGE_NAME.
+node {
+   stage ('Create File') {
+      sh 'touch NewFile'
+      mail bcc: '', body: '''This is the $JOB_NAME while in $STAGE_NAME.
 
 Cheers,
 Pedro Nunes.''', cc: '', from: '', replyTo: '', subject: '$JOB_NAME - $STAGE_NAME', to: 'pedro.nunes@oracle.com'
+   }
+   stage ('Write') {
+      sh 'echo "This is a message" > NewFile'
+      mail bcc: '', body: '''This is the $JOB_NAME while in $STAGE_NAME.
+
+Cheers,
+Pedro Nunes.''', cc: '', from: '', replyTo: '', subject: '$JOB_NAME - $STAGE_NAME', to: 'pedro.nunes@oracle.com'
+   }
+   stage ('Print') {
+      sh 'cat NewFile'
+      mail bcc: '', body: '''This is the $JOB_NAME while in $STAGE_NAME.
+
+Cheers,
+Pedro Nunes.''', cc: '', from: '', replyTo: '', subject: '$JOB_NAME - $STAGE_NAME', to: 'pedro.nunes@oracle.com'
+   }
+}
