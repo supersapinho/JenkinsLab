@@ -1,0 +1,5 @@
+
+mail bcc: '', body: '''This is the $JOB_NAME while in $STAGE_NAME.
+
+Cheers,
+Pedro Nunes.''', cc: '', from: '', replyTo: '', subject: '$JOB_NAME - $STAGE_NAME', to: 'pedro.nunes@oracle.com'
